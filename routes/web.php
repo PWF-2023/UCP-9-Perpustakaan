@@ -28,6 +28,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/bukus', [BukuController::class, 'index'])->name('bukus.index');
+
+    Route::get('/peminjamen', [PeminjamanController::class, 'index'])->name('peminjamen.index');
+    Route::get('/peminjamen/{buku}', [PeminjamanController::class, 'create'])->name('peminjamen.create');
+    Route::post('/peminjamen/{buku}', [PeminjamanController::class, 'store'])->name('peminjamen.store');
+    Route::get('/peminjamen/terminate/{peminjaman}', [PeminjamanController::class, 'terminate'])->name('peminjamen.terminate');
 });
 
 require __DIR__.'/auth.php';
