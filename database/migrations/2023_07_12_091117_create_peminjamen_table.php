@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('peminjamen', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('book_id');
+            $table->foreignId('buku_id');
             $table->foreignId('user_id');
             $table->integer('number_borrowed');
             $table->dateTime('return_date');

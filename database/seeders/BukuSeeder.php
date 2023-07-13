@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Buku;
 
 class BukuSeeder extends Seeder
 {
@@ -12,6 +13,6 @@ class BukuSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Buku::factory()->times(20)->create();
     }
 }
