@@ -10,6 +10,14 @@ class Buku extends Model
 {
 
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'author',
+        'year',
+        'copies_in_circulation',
+        'category_id',
+    ];
+
 
     public function canBeBorrowed(): bool
     {
@@ -32,5 +40,10 @@ class Buku extends Model
     public function availableCopies(): int
     {
         return $this->copies_in_circulation - $this->activePeminjamen();
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }
