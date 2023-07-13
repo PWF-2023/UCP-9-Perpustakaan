@@ -18,15 +18,17 @@
                     <x-nav-link :href="route('bukus.index')" :active="request()->routeIs('bukus.index')">
                         {{ __('Buku') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('category.index')" :active="request()->routeIs('category.index')">
                         {{ __('Kategori') }}
                     </x-nav-link>
                     <x-nav-link :href="route('peminjamen.index')" :active="request()->routeIs('peminjamen.index')">
                         {{ __('Peminjaman') }}
                     </x-nav-link>
-                    {{-- <x-nav-link :href="route('')" :active="request()->routeIs('')">
+                    @can('admin')
+                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                         {{ __('Anggota') }}
-                    </x-nav-link> --}}
+                    </x-nav-link>
+                    @endcan
                 </div>
             </div>
 
@@ -93,15 +95,17 @@
             <x-responsive-nav-link :href="route('bukus.index')" :active="request()->routeIs('bukus.index')">
                 {{ __('Buku') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="route('category.index')" :active="request()->routeIs('category.index')">
                 {{ __('Kategori') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('peminjamen.index')" :active="request()->routeIs('peminjamen.index')">
                 {{ __('Peminjaman') }}
             </x-responsive-nav-link>
-            {{-- <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            @can('admin')
+            <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                 {{ __('Anggota') }}
-            </x-responsive-nav-link> --}}
+            </x-responsive-nav-link>
+            @endcan
         </div>
 
         <!-- Responsive Settings Options -->
