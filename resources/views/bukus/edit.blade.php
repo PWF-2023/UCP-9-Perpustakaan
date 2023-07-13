@@ -39,6 +39,19 @@
                                 autofocus autocomplete="copies_in_circulation" :value="old('copies_in_circulation')" />
                             <x-input-error class="mt-2" :messages="$errors->get('copies_in_circulation')" />
                         </div>
+                        <div class="mb-6">
+                            <x-input-label for="category_id" :value="__('Category')" />
+                            <x-select id="category_id" name="category_id" class="block w-full mt-1">
+                                <option value="">Empty</option>
+                                @foreach ($categories as $category)
+                                <option value="{{ $category->id }}" {{ old('category_id')==$category->id ?
+                                    'selected' : '' }}>
+                                    {{ $category->title }}
+                                </option>
+                                @endforeach
+                            </x-select>
+                            <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
+                        </div>
                         <div class="flex items-center gap-4">
                             <x-primary-button>{{ __('Save') }}</x-primary-button>
                             <x-cancel-button href="{{ route('bukus.index') }}" />
