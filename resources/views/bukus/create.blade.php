@@ -36,12 +36,12 @@
                                 autofocus autocomplete="copies_in_circulation" :value="old('copies_in_circulation')" />
                             <x-input-error class="mt-2" :messages="$errors->get('copies_in_circulation')" />
                         </div>
-                        <!-- <div class="mb-6">
+                        {{-- <!-- <div class="mb-6">
                             <x-input-label for="title" :value="__('Salinan Tersedia')" />
                             <x-text-input id="title" name="title" type="text" class="block w-full mt-1" required
                                 autofocus autocomplete="title" :value="old('availableCopies')" />
                             <x-input-error class="mt-2" :messages="$errors->get('availableCopies')" />
-                        </div> -->
+                        </div> --> --}}
                         <div class="mb-6">
                             <x-input-label for="category_id" :value="__('Category')" />
                             <x-select id="category_id" name="category_id" class="block w-full mt-1">

@@ -51,8 +51,10 @@ Route::middleware(['auth','verified'])->group(function () {
         Route::delete('/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
         Route::patch('/user/{user}/makeadmin', [UserController::class, 'makeadmin'])->name('user.makeadmin');
         Route::patch('/user/{user}/removeadmin', [UserController::class, 'removeadmin'])->name('user.removeadmin');
+
     });
 
+    
 });
 
 require __DIR__ . '/auth.php';
