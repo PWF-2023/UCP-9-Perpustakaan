@@ -111,6 +111,7 @@
                                         @else
                                             <p class="text-red-600">No copies available to borrow</p>
                                         @endif
+                                        @can('admin')
                                         <form action="{{ route('bukus.edit', $buku) }}" method="Post">
                                                 @csrf
                                                 @method('GET')
@@ -125,6 +126,7 @@
                                                     Delete
                                                 </button>
                                         </form>
+                                        @endcan
                                     </td>
                                 </tr>
                             @empty

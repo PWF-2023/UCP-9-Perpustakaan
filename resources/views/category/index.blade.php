@@ -40,9 +40,11 @@
                                 <th scope="col" class="px-6 py-3">
                                     Buku
                                 </th>
+                                @can('admin')
                                 <th scope="col" class="px-6 py-3">
                                     Action
                                 </th>
+                                @endcan
                             </tr>
                         </thead>
                         <tbody>
@@ -58,7 +60,7 @@
                                             {{ $category->buku->count() }}
                                         </p>
                                     </td>
-                                    
+                                    @can('admin')
                                     <td class="px-6 py-4">
                                         <div class="flex space-x-3">
                                             <form action="{{ route('category.edit', $category) }}" method="Post">
@@ -68,7 +70,7 @@
                                                     Edit
                                                 </button>
                                             </form>
-
+                                 
                                             <form action="{{ route('category.destroy', $category) }}" method="Post">
                                                 @csrf
                                                 @method('DELETE')
@@ -78,7 +80,7 @@
                                             </form>
                                         </div>
                                     </td>
-                                    
+                                    @endcan
                                 </tr>
                             @empty
                                 <tr class="bg-white dark:bg-gray-800">
