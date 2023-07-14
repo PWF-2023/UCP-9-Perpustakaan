@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-            {{ __('Buku Category') }}
+            {{ __(' Kategori Buku') }}
         </h2>
     </x-slot>
 
@@ -11,9 +11,9 @@
                 <div class="p-6 text-xl text-gray-900 dark:text-gray-100">
                     <div class="flex items-center justify-between">
                         @can('admin')
-                        <div>
-                            <x-create-button href="{{ route('category.create') }}" />
-                        </div>
+                            <div>
+                                <x-create-button href="{{ route('category.create') }}" />
+                            </div>
                         @endcan
                         <div>
                             @if (session('success'))
@@ -41,9 +41,9 @@
                                     Buku
                                 </th>
                                 @can('admin')
-                                <th scope="col" class="px-6 py-3">
-                                    Action
-                                </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Action
+                                    </th>
                                 @endcan
                             </tr>
                         </thead>
@@ -61,25 +61,25 @@
                                         </p>
                                     </td>
                                     @can('admin')
-                                    <td class="px-6 py-4">
-                                        <div class="flex space-x-3">
-                                            <form action="{{ route('category.edit', $category) }}" method="Post">
-                                                @csrf
-                                                @method('GET')
-                                                <button type="submit" class="text-red-600 dark:text-red-400">
-                                                    Edit
-                                                </button>
-                                            </form>
-                                 
-                                            <form action="{{ route('category.destroy', $category) }}" method="Post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="text-red-600 dark:text-red-400">
-                                                    Delete
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </td>
+                                        <td class="px-6 py-4">
+                                            <div class="flex space-x-3">
+                                                <form action="{{ route('category.edit', $category) }}" method="Post">
+                                                    @csrf
+                                                    @method('GET')
+                                                    <button type="submit" class="text-red-600 dark:text-red-400">
+                                                        Edit
+                                                    </button>
+                                                </form>
+
+                                                <form action="{{ route('category.destroy', $category) }}" method="Post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="text-red-600 dark:text-red-400">
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
                                     @endcan
                                 </tr>
                             @empty

@@ -53,10 +53,11 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('category.edit', compact('category'));{
-        // Gate::authorize('admin');
+        Gate::authorize('admin');
+        return view('category.edit', compact('category')); {
+            // Gate::authorize('admin');
 
-        // Lakukan pengecekan apakah pengguna memiliki hak akses sebagai admin
+            // Lakukan pengecekan apakah pengguna memiliki hak akses sebagai admin
         }
     }
 
@@ -84,10 +85,10 @@ class CategoryController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Category $category)
-    {
-     {
-        $category->delete();
+    { {
+            Gate::authorize('admin');
+            $category->delete();
             return redirect()->route('category.index')->with('success', 'Category deleted successfully!');
-     }
+        }
     }
 }

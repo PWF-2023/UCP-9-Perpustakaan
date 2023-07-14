@@ -42,8 +42,8 @@ class BukuController extends Controller
         $buku = Buku::create([
             'title' => ucfirst($request->title),
             'author' => ucfirst($request->author),
-            'year'=> ($request->year),
-            'copies_in_circulation'=> ($request->copies_in_circulation),
+            'year' => ($request->year),
+            'copies_in_circulation' => ($request->copies_in_circulation),
             'category_id' => $request->category_id
         ]);
         // dd($buku);
@@ -52,12 +52,11 @@ class BukuController extends Controller
 
     public function edit(Buku $buku)
     {
-        $categories = Category::all();
-      {
+        Gate::authorize('admin');
+        $categories = Category::all(); {
             // dd($buku);
             return view('bukus.edit', compact('buku', 'categories'));
         }
-
     }
 
     public function update(Request $request, Buku $buku)
@@ -77,20 +76,18 @@ class BukuController extends Controller
         $buku->update([
             'title' => ucfirst($request->title),
             'author' => ucfirst($request->author),
-            'year'=> ($request->year),
-            'copies_in_circulation'=> ($request->copies_in_circulation),
+            'year' => ($request->year),
+            'copies_in_circulation' => ($request->copies_in_circulation),
             'category_id' => $request->category_id
         ]);
         return redirect()->route('bukus.index')->with('success', 'buku updated successfully!');
     }
 
     public function destroy(Buku $buku)
-    {
-     {
-        $buku->delete();
-        return redirect()->route('bukus.index')->with('success', 'Buku deleted successfully!');
-     }
+    { {
+            Gate::authorize('admin');
+            $buku->delete();
+            return redirect()->route('bukus.index')->with('success', 'Buku deleted successfully!');
+        }
     }
-
 }
-
