@@ -23,31 +23,30 @@
                         </div>
                         <div class="mb-6">
                             <x-input-label for="title" :value="__('Penulis')" />
-                            <x-text-input id="author" name="author" type="text" class="block w-full mt-1" required
-                                autofocus autocomplete="author" :value="old('author')" />
-                            <x-input-error class="mt-2" :messages="$errors->get('author')" />
+                            <x-text-input id="author" name="author" type="text" class="block w-full mt-1"
+                            :value="old('name', $buku->author)" required autofocus autocomplete="author" />
+                        <x-input-error class="mt-2" :messages="$errors->get('author')" />
                         </div>
                         <div class="mb-6">
                             <x-input-label for="title" :value="__('Tahun Rilis')" />
-                            <x-text-input id="year" name="year" type="text" class="block w-full mt-1" required
-                                autofocus autocomplete="year" :value="old('year')" />
-                            <x-input-error class="mt-2" :messages="$errors->get('year')" />
+                            <x-text-input id="year" name="year" type="text" class="block w-full mt-1"
+                            :value="old('name', $buku->year)" required autofocus autocomplete="year" />
+                        <x-input-error class="mt-2" :messages="$errors->get('year')" />
                         </div>
                         <div class="mb-6">
                             <x-input-label for="title" :value="__('Salinan Asli')" />
-                            <x-text-input id="copies_in_circulation" name="copies_in_circulation" type="text" class="block w-full mt-1" required
-                                autofocus autocomplete="copies_in_circulation" :value="old('copies_in_circulation')" />
-                            <x-input-error class="mt-2" :messages="$errors->get('copies_in_circulation')" />
+                            <x-text-input id="copies_in_circulation" name="copies_in_circulation" type="text" class="block w-full mt-1"
+                            :value="old('name', $buku->copies_in_circulation)" required autofocus autocomplete="copies_in_circulation" />
+                        <x-input-error class="mt-2" :messages="$errors->get('copies_in_circulation')" />
                         </div>
                         <div class="mb-6">
                             <x-input-label for="category_id" :value="__('Category')" />
                             <x-select id="category_id" name="category_id" class="block w-full mt-1">
                                 <option value="">Empty</option>
                                 @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" {{ old('category_id')==$category->id ?
-                                    'selected' : '' }}>
-                                    {{ $category->title }}
-                                </option>
+                                    <option value="{{ $category->id }}" {{ ($buku->category && $category->id == $buku->category->id) ? 'selected' : '' }}>
+                                        {{ $category->title }}
+                                    </option>
                                 @endforeach
                             </x-select>
                             <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
